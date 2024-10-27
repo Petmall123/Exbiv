@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            max-width: 400px;
+        }
+
+
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .captcha {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .captcha input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body dir="">
+    <div class="login-container">
+<h1>
+        <span style="color: #1f8ceb; font-weight: bold; font-size: 72px;">1</span>
+        <span style="color: #2a2a2a; font-weight: bold; font-size: 72px; letter-spacing: -2px;">
+            <span style="color: #1f8ceb;">X</span>BET
+        </span>
+    </h1>
+    <hr>
+    <br>
+    <br>
+        <form id="loginForm" dir="rtl">
+            <div class="form-group">
+                <label for="email">البريد الالكتروني:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">كلمة السر:</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="captcha">
+                <input type="checkbox" id="captcha" required>
+                <label for="captcha">I am not a robot</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="social-icons">
+            <img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Facebook">
+            <img src="https://img.icons8.com/ios-filled/50/000000/twitter-squared.png" alt="Twitter">
+            <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+        </div>
+        <p id="error-message">Invalid email or password</p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('error-message');
+
+        // البيانات الصحيحة لتسجيل الدخول
+        const correctEmail = 'user@example.com';
+        const correctPassword = 'password123';
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const captchaChecked = document.getElementById('captcha').checked;// التحقق من البيانات
+            
+            if (email === correctEmail && password === correctPassword && captchaChecked) {
+            alert('Login successful!');
+            location.href = "dashboard.html"; // تم تعديل ":" إلى ";"
+            } else {
+            errorMessage.style.display = 'block'; // عرض رسالة الخطأ
+            }
+            
+        });
+    </script>
+</body>
+</html>
